@@ -1,0 +1,87 @@
+./maestro --print_res=false \
+          --DFSL_file='data/DFSL_description/UNet_DLA_CL32.m' \
+          --noc_bw=32 \
+          --noc_hops=1 \
+          --noc_hop_latency=1 \
+          --noc_mc_support=true \
+          --top_bw_only=true \
+          --bw_sweep=true \
+          --num_pes=65536 \
+          --num_simd_lanes=1 \
+          --do_dse=false \
+          --print_design_space=true \
+          --min_noc_bw=4 \
+          --max_noc_bw=32 \
+          --bw_tick=4 \
+          --msg_print_lv=0 
+
+
+./maestro --print_res=false \
+          --DFSL_file='data/DFSL_description/UNet_DLA_CL64.m' \
+          --noc_bw=32 \
+          --noc_hops=1 \
+          --noc_hop_latency=1 \
+          --noc_mc_support=true \
+          --top_bw_only=true \
+          --bw_sweep=true \
+          --num_pes=65536 \
+          --num_simd_lanes=1 \
+          --do_dse=false \
+          --print_design_space=true \
+          --min_noc_bw=4 \
+          --max_noc_bw=32 \
+          --bw_tick=4 \
+          --msg_print_lv=0 
+
+./maestro --print_res=false \
+          --DFSL_file='data/DFSL_description/UNet_DLA_CL128.m' \
+          --noc_bw=32 \
+          --noc_hops=1 \
+          --noc_hop_latency=1 \
+          --noc_mc_support=true \
+          --top_bw_only=true \
+          --bw_sweep=true \
+          --num_pes=65536 \
+          --num_simd_lanes=1 \
+          --do_dse=false \
+          --print_design_space=true \
+          --min_noc_bw=4 \
+          --max_noc_bw=32 \
+          --bw_tick=4 \
+          --msg_print_lv=0 
+
+
+./maestro --print_res=false \
+          --DFSL_file='data/DFSL_description/UNet_DLA_CL256.m' \
+          --noc_bw=32 \
+          --noc_hops=1 \
+          --noc_hop_latency=1 \
+          --noc_mc_support=true \
+          --top_bw_only=true \
+          --bw_sweep=true \
+          --num_pes=65536 \
+          --num_simd_lanes=1 \
+          --do_dse=false \
+          --print_design_space=true \
+          --min_noc_bw=4 \
+          --max_noc_bw=32 \
+          --bw_tick=4 \
+          --msg_print_lv=0 
+
+./maestro --print_res=false \
+          --DFSL_file='data/DFSL_description/UNet_DLA_CL512.m' \
+          --noc_bw=32 \
+          --noc_hops=1 \
+          --noc_hop_latency=1 \
+          --noc_mc_support=true \
+          --top_bw_only=true \
+          --bw_sweep=true \
+          --num_pes=65536 \
+          --num_simd_lanes=1 \
+          --do_dse=false \
+          --print_design_space=true \
+          --min_noc_bw=4 \
+          --max_noc_bw=32 \
+          --bw_tick=4 \
+          --msg_print_lv=0 
+

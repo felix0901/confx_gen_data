@@ -1,0 +1,280 @@
+Network VGG16 {
+	Layer CONV1 {
+		Type: CONV
+		Stride { X: 1, Y: 1 }
+		Dimensions { K: 64, C: 3, R: 3, S: 3, Y: 224, X: 224 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+	}
+
+	Layer CONV2 {
+		Type: CONV
+		Dimensions { K: 64, C: 64, R: 3, S: 3, Y: 224, X: 224 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV3 {
+		Type: CONV
+		Dimensions { K: 128, C: 64, R: 3, S: 3, Y: 112, X: 112 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV4 {
+		Type: CONV
+		Dimensions { K: 128, C: 128, R: 3, S: 3, Y: 112, X: 112 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+
+	Layer CONV5 {
+		Type: CONV
+		Dimensions { K: 256, C:128, R: 3, S: 3, Y: 56, X: 56 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV6 {
+		Type: CONV
+		Dimensions { K: 256, C: 256, R: 3, S: 3, Y: 56, X: 56 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV7 {
+		Type: CONV
+		Dimensions { K: 256, C: 256, R: 3, S: 3, Y: 56, X: 56 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV8 {
+		Type: CONV
+		Dimensions { K: 512, C: 256, R: 3, S: 3, Y: 28, X: 28 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV9 {
+		Type: CONV
+		Dimensions { K: 512, C:512, R: 3, S: 3, Y: 28, X: 28 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV10 {
+		Type: CONV
+		Dimensions { K: 512, C: 512, R: 3, S: 3, Y: 28, X: 28 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV11 {
+		Type: CONV
+		Dimensions { K: 512, C: 512, R: 3, S: 3, Y: 14, X: 14 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+	}
+
+	Layer CONV12 {
+		Type: CONV
+		Dimensions { K: 512, C: 512, R: 3, S: 3, Y: 14, X: 14 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer CONV13 {
+		Type: CONV
+		Dimensions { K: 512, C: 512, R: 3, S: 3, Y: 14, X: 14 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+	Layer FC1 {
+		Type: CONV
+		Dimensions { K: 4096, C: 512, R: 14, S: 14, Y: 14, X: 14 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+
+
+	Layer FC2 {
+		Type: CONV
+		Dimensions { K: 4096, C: 4096, R: 1, S: 1, Y: 1, X: 1 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+	}
+
+	Layer FC3 {
+		Type: CONV
+		Dimensions { K: 1000, C: 4096, R: 1, S: 1, Y: 1, X: 1 }
+		Dataflow {
+			TemporalMap(2,2) C;
+			TemporalMap(2,2) K;
+			SpatialMap(Sz(R),1) Y;
+			TemporalMap(Sz(S),1) X;
+			TemporalMap(Sz(R),Sz(R)) R;
+			TemporalMap(Sz(S),Sz(S)) S;
+			Cluster(Sz(R),P);
+			SpatialMap(1,1) Y;
+			SpatialMap(1,1) R;
+		}
+
+	}
+}
+
+
+//Accelerator {
+//  PE { NumPEs: 128; VectorWidth: 4; MultPrecision: INT8, AddPrecision: INT16 }
+//  Buffer { GlobalL2: 2048, LocalL1: 64}
+//  NoC {Bandwidth: 64; AvgLatency: 2}
+//}
