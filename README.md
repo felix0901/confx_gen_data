@@ -9,7 +9,7 @@ scons
 mv maestro ../confuciux/cost_model
 ```
 
-3. run
+3. Run data collection
 ```
 cd confuciux/src/Confx/main
 ```
