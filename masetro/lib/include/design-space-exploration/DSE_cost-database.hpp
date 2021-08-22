@@ -40,11 +40,11 @@ namespace maestro {
       const double sram_area_32768 = 4161.536;
       const double sram_power_32768 = 4;
 
-      const double bus_unit_area = 101.7938;
-      const double bus_unit_power = 0.8;
+      const double bus_unit_area = 0;
+      const double bus_unit_power = 0;
 
-      const double arbiter_unit_area = 395.473;
-      const double arbiter_unit_power = 0.34;
+      const double arbiter_unit_area = 0;
+      const double arbiter_unit_power = 0;
 
     }; // End of namespace scaling_model
   }; // End of namespace DSE
