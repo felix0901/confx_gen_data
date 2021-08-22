@@ -244,32 +244,47 @@ if __name__ == "__main__":
         env.set_constraint_value(max_constraint, min_constraint, set_constraint)
         print("Set constraint: {}".format(set_constraint))
         # ========================================================================================================================
+        #===data collection==========
+        # data = []
+        # for i in range(int(1e7)):
+        #     reward, total_constraint, sol = env.get_one_sample(action_space=action_space)
+        #     if reward is None:
+        #         latency = 0
+        #     else:
+        #         if total_constraint > set_constraint:
+        #             latency = 0
+        #         else:
+        #             latency = -reward
+        #     print(latency)
+        #     data.append([latency,total_constraint,set_constraint, *np.array(sol).flatten()])
+        #     np_data = np.array(data)
+        #     if i%100 == 0:
+        #         columns = ['latency', 'area_cost', 'area_constraint', *np.array([[f'L_{i+1}_PE',f'L_{i+1}_Buf'] for i in range(len(model_defs))]).flatten().tolist()]
+        #         df = pd.DataFrame(np_data, columns=columns)
+        #         df.to_csv(f'{filename}_cstr.csv')
+        #         df2 = df.drop(columns=[ 'area_cost', 'area_constraint'])
+        #         df2.to_csv(f'{filename}.csv')
+        #============================
 
-        data = []
-
-        for i in range(int(1e7)):
-            reward, total_constraint, sol = env.get_one_sample(action_space=action_space)
-            if reward is None:
-                latency = 0
-            else:
-                if total_constraint > set_constraint:
-                    latency = 0
-                else:
-                    latency = -reward
-            print(latency)
-            data.append([latency,total_constraint,set_constraint, *np.array(sol).flatten()])
-            np_data = np.array(data)
-            if i%100 == 0:
-                columns = ['latency', 'area_cost', 'area_constraint', *np.array([[f'L_{i+1}_PE',f'L_{i+1}_Buf'] for i in range(len(model_defs))]).flatten().tolist()]
-                df = pd.DataFrame(np_data, columns=columns)
-                df.to_csv(f'{filename}_cstr.csv')
-                df2 = df.drop(columns=[ 'area_cost', 'area_constraint'])
-                df2.to_csv(f'{filename}.csv')
-
-
+        #=====testing=======
         sol = [[128, 5], [32, 10], [48, 1], [2, 1], [24, 4], [4, 7], [2, 12], [48, 2], [24, 4], [1, 10], [64, 10], [64, 1], [64, 2], [32, 11], [48, 1], [4, 5], [32, 2], [16, 11], [4, 6], [8, 7], [4, 11], [4, 1], [64, 7], [4, 9], [64, 8], [1, 10], [32, 9], [12, 8], [48, 12], [32, 3], [12, 3], [2, 11], [48, 2], [12, 11], [64, 5], [96, 6], [96, 2], [8, 3], [8, 3], [12, 1], [32, 10], [4, 12], [8, 10], [96, 8], [2, 3], [2, 6], [96, 7], [24, 5], [2, 3], [128, 11], [48, 9], [4, 9]]
-        test(sol, env)
+        reward, constraint = test(sol, env)
 
+        #===testing from csv=====
+        results = pd.read_csv('../../others/1_cstr.csv').to_numpy()
+        sol = []
+        result = results[0]
+        latency = result[1]
+        use_constraint_csv = result[2]
+        set_constraint_csv = result[3]
+        for i in range(4, len(result), 2):
+            sol.append([result[i], result[i+1]])
+
+        reward, constraint = test(sol, env)
+        print(latency, -reward)
+        print(use_constraint_csv, constraint)
+        print(set_constraint_csv, set_constraint)
+        #=====================
 
     finally:
         for f in glob.glob("*.m"):
