@@ -150,6 +150,9 @@ def genetic_search(best_sol, best_reward, action_bound, action_bottom, num_layer
 
     return chkpt
 
+def test(sol, env):
+    reward, total_constraint = env.exterior_search(sol)
+    return reward, total_constraint
 
 def check_sol(sol):
     reward = env.exterior_search(sol)
@@ -263,9 +266,18 @@ if __name__ == "__main__":
                 df2 = df.drop(columns=[ 'area_cost', 'area_constraint'])
                 df2.to_csv(f'{filename}.csv')
 
+
+        sol = [[128, 5], [32, 10], [48, 1], [2, 1], [24, 4], [4, 7], [2, 12], [48, 2], [24, 4], [1, 10], [64, 10], [64, 1], [64, 2], [32, 11], [48, 1], [4, 5], [32, 2], [16, 11], [4, 6], [8, 7], [4, 11], [4, 1], [64, 7], [4, 9], [64, 8], [1, 10], [32, 9], [12, 8], [48, 12], [32, 3], [12, 3], [2, 11], [48, 2], [12, 11], [64, 5], [96, 6], [96, 2], [8, 3], [8, 3], [12, 1], [32, 10], [4, 12], [8, 10], [96, 8], [2, 3], [2, 6], [96, 7], [24, 5], [2, 3], [128, 11], [48, 9], [4, 9]]
+        test(sol, env)
+
+
     finally:
         for f in glob.glob("*.m"):
             os.remove(f)
         # for f in glob.glob("*.csv"):
         #     if f != f'{filename}.csv':
         #         os.remove(f)
+
+
+
+
